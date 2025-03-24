@@ -170,7 +170,8 @@ function formatDate(date) {
     newDate.getSeconds() < 10
       ? `0${newDate.getSeconds()}`
       : newDate.getSeconds();
-  const ampm = newDate.getHours() <= 12 ? 'AM' : 'PM';
+  const ampm =
+    newDate.getUTCHours() >= 12 && newDate.getUTCHours() <= 23 ? 'PM' : 'AM';
   return `${month}/${day}/${year}, ${hours}:${minutes}:${seconds} ${ampm}`;
 }
 
